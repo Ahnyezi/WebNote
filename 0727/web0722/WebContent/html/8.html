@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+var x=10; //전역변수(선언 o)
+function f1(){
+	var x=100;//지역변수(선언 o)
+	y=200;//전역변수(선언 x)
+	alert("x:"+x+"/y:"+y);/*active(가장 가까운) 영역의 변수 사용*/
+	document.write("f1<br/>");
+}
+
+function f2(a,b){
+	alert("x:"+x+"y:"+y); /*전역 변수 끌어다 사용*/
+	return a+b;
+}
+
+</script>
+</head>
+<body>
+<script>
+f1()
+res = f2(2,3)
+document.write("2+3="+res)
+</script>
+</body>
+</html>

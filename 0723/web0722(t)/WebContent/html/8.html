@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+var x=10//전역변수
+function f1(){
+	var x=100//지역변수
+	y=200//전역변수
+	alert("x:"+x+"/y:"+y);
+	document.write("f1<br>");
+}
+
+function f2(a, b){
+	alert("x:"+x+"/y:"+y);
+	return a+b
+}
+</script>
+</head>
+<body>
+<script>
+f1()
+res = f2(2,3)
+document.write("2+3="+res)
+</script>
+</body>
+</html>

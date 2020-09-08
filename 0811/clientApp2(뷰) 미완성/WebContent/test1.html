@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+<div id="app1">
+<div>id={{msg1.id}}, pwd={{msg1.pwd}}, name={{msg1.name}}</div>
+<div>
+<ul v-for="m in msg2">
+<li>{{m.id}} / {{m.pwd}} / {{m.name}}</li>
+</ul>
+</div>
+ </div>
+ 
+<script type="text/javascript">
+new Vue({
+	el:"#app1",
+	data:{
+		msg1:{"id":"aaa","pwd":"aaa","name":"aaa"},
+		msg2:[{"id":"aaa","pwd":"aaa","name":"aaa"},
+			{"id":"bbb","pwd":"bbb","name":"bbb"},
+			{"id":"ccc","pwd":"ccc","name":"ccc"}]
+			
+	}
+})
+</script>
+</body>
+</html>

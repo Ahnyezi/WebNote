@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<table style="width:700" border="1">
+	<tr><td colspan="2"><h2>encore-shop</h2></td></tr>
+	<tr><td id="left" style="width:300;height:600">
+<div v-if="logstat">
+<label for="loginform">login</label><br/>
+<input v-model="id" placeholder="id를 입력하시오 "><br/>
+<input v-model="pwd" placeholder="pwd를 입력하시오 "><br/>
+<button v-on:click="login">로그인</button>
+<a href="join.html">회원가입</a>
+</div>
+<div v-else>
+{{ logtypes }} 메뉴 <br/>
+<button v-on:click="logout">로그아웃</button>
+</div>
+</td>
+<td id="right" style="width:400;height:600">내용</td>
+</tr>
+</table>
+<script type="text/javascript">
+new Vue({
+	el:"#left", 
+	data:{
+		id:'',
+		pwd:'',
+		logstat:true,
+		logtypei:'',
+		logtypes:''
+	},
+	created:function(){
+		this.id = sessionStorage.getItem('id');
+		if(this.id!=null){
+			this.logstat=false;
+			this.logtypei=sessionStorage.getItem('typei');
+			this.logtypes=sessionStorage.getItem('types');
+			alert(this.logtypes)
+		}
+	},
+	methods:{
+		login:function(){
+			axios.get('http://localhost:8888/members',{params:{'id':this.id, 'pwd':this.pwd}})
+			.then(res=>{
+// 				alert(res.data.result)
+				if(res.data.result){
+				this.logstat = false
+				sessionStorage.setItem("id",this.id);
+				sessionStorage.setItem("typei",res.data.typei);
+				sessionStorage.setItem("types",res.data.types);
+				this.logtypei = res.data.typei;
+				this.logtypes = res.data.types;
+				alert(this.logtypes)
+				}
+			});
+		},
+		logout:function(){
+			sessionStorage.clear();
+			this.logstat = true
+			this.logtypei= ''
+			this.logtypes= ''
+			this.id=''
+			this.pwd=''
+		}
+	}
+})
+new Vue({
+	el:"#right",
+	data:{
+		
+	},
+	methods:{
+		
+	}
+})
+</script>
+</body>
+</html>

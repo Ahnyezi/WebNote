@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+function del(){
+	f.action="/user/delete";
+	f.submit();
+}
+</script>
+</head>
+<body>
+<h3>join form</h3>
+<form action="/user/edit" method="post" name="f">
+id:<input type="text" name="id" th:value="${u.id}" readonly><br>
+pwd:<input type="text" name="pwd" th:value="${u.pwd}"><br>
+name:<input type="text" name="name" th:value="${u.name}" readonly><br>
+email:<input type="text" name="email" th:value="${u.email}"><br>
+<input type="submit" value="edit">
+<input type="button" value="del" onclick="del()"><br>
+</form>
+</body>
+</html>

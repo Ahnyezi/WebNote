@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+//변수 선언 후 사용
+var a=10;
+document.write("a="+a+"<br/>");
+//변수 선언 없이 사용
+b="hellow msg";
+document.write("b="+b+"<br/>");
+
+msg = prompt("계산하고 싶은 수식을 입력하시오");//입력박스 창
+res = eval(msg);//문자열 수식 숫자로 바꿔서 자동 계산
+document.write(msg+"="+res+"<br/>");
+alert("계산 완료")
+
+document.write("<table border='1'><tr>")
+for(i=0;i<10;i++){
+	document.write("<td>msg"+i+"</td>")
+}
+document.write("</tr></table>")
+</script>
+
+</body>
+</html>

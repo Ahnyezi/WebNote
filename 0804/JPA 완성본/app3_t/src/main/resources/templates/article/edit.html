@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>article edit form</h3>
+<form action="/article/edit" method="post">
+num:<input type="text" name="num" th:value="${a.num}" readonly><br>
+title:<input type="text" name="title" th:value="${a.title}"><br>
+writer:<input type="text" name="writer" th:value="${a.writer.id}" readonly><br>
+w_date:<input type="text" th:value="${a.w_date}" readonly><br>
+content:<input type="text" name="content" th:value="${a.content}"><br>
+<input type="submit" value="edit"><br>
+</form>
+</body>
+</html>

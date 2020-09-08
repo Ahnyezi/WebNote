@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+var arr = ['daum.png','img1.png','naver.png','universe.png','universe2.jpg'];
+idx = 0
+
+function prev(){
+	idx--;
+	document.img.src = '../img/'+arr[idx%5];
+}
+function next(){
+	idx++;
+	document.img.src = '../img/'+arr[idx%5];
+}
+
+</script>
+</head>
+<body>
+<img src="../img/daum.png" name='img'><br/>
+<input type="button" value="prev" onclick="prev()">
+<input type="button" value="next" onclick="next()">
+</body>
+
+</html>
